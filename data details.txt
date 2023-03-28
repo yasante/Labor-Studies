@@ -1,0 +1,543 @@
+Context
+The gender pay gap or gender wage gap is the average difference between the remuneration for men and women who are working. Women are generally considered to be paid less than men. There are two distinct numbers regarding the pay gap: non-adjusted versus adjusted pay gap. The latter typically takes into account differences in hours worked, occupations were chosen, education, and job experience. In the United States, for example, the non-adjusted average female's annual salary is 79% of the average male salary, compared to 95% for the adjusted average salary.
+
+The reasons link to legal, social, and economic factors, and extend beyond "equal pay for equal work".
+
+The gender pay gap can be a problem from a public policy perspective because it reduces economic output and means that women are more likely to be dependent upon welfare payments, especially in old age.
+
+This dataset aims to replicate the data used in the famous paper "The Gender Wage Gap: Extent, Trends, and Explanations", which provides new empirical evidence on the extent of and trends in the gender wage gap, which declined considerably during the 1980–2010 period.
+
+Citation
+fedesoriano. (January 2022). Gender Pay Gap Dataset. Retrieved [Date Retrieved] from https://www.kaggle.com/fedesoriano/gender-pay-gap-dataset.
+
+Content
+There are 2 files in this dataset: a) the Panel Study of Income Dynamics (PSID) microdata over the 1980-2010 period, and b) the Current Population Survey (CPS) to provide some additional US national data on the gender pay gap.
+
+PSID variables:
+
+NOTES: THE VARIABLES WITH fz ADDED TO THEIR NAME REFER TO EXPERIENCE WHERE WE HAVE FILLED IN SOME ZEROS IN THE MISSING PSID YEARS WITH DATA FROM THE RESPONDENTS’ ANSWERS TO QUESTIONS ABOUT JOBS WORKED ON DURING THESE MISSING YEARS. THE fz variables WERE USED IN THE REGRESSION ANALYSES
+THE VARIABLES WITH A predict PREFIX REFER TO THE COMPUTATION OF ACTUAL EXPERIENCE ACCUMULATED DURING THE YEARS IN WHICH THE PSID DID NOT SURVEY THE RESPONDENTS. THERE ARE MORE PREDICTED EXPERIENCE LEVELS THAT ARE NEEDED TO IMPUTE EXPERIENCE IN THE MISSING YEARS IN SOME CASES.
+NOTE THAT THE VARIABLES yrsexpf, yrsexpfsz, etc., INCLUDE THESE COMPUTATIONS, SO THAT IF YOU WANT TO USE FULL TIME OR PART TIME EXPERIENCE, YOU DON’T NEED TO ADD THESE PREDICT VARIABLES IN. THEY ARE INCLUDED IN THE DATA SET TO ILLUSTRATE THE RESULTS OF THE COMPUTATION PROCESS.
+THE VARIABLES WITH AN orig PREFIX ARE THE ORIGINAL PSID VARIABLES. THESE HAVE BEEN PROCESSED AND IN SOME CASES RENAMED FOR CONVENIENCE. THE hd SUFFIX MEANS THAT THE VARIABLE REFERS TO THE HEAD OF THE FAMILY, AND THE wf SUFFIX MEANS THAT IT REFERS TO THE WIFE OR FEMALE COHABITOR IF THERE IS ONE. AS SHOWN IN THE ACCOMPANYING REGRESSION PROGRAM, THESE orig VARIABLES AREN’T USED DIRECTLY IN THE REGRESSIONS. THERE ARE MORE OF THE ORIGINAL PSID VARIABLES, WHICH WERE USED TO CONSTRUCT THE VARIABLES USED IN THE REGRESSIONS. HD MEANS HEAD AND WF MEANS WIFE OR FEMALE COHABITOR.
+
+intnum68: 1968 INTERVIEW NUMBER
+pernum68: PERSON NUMBER 68
+wave: Current Wave of the PSID
+sex: gender SEX OF INDIVIDUAL (1=male, 2=female)
+intnum: Wave-specific Interview Number
+farminc: Farm Income
+region: regLab Region of Current Interview
+famwgt: this is the PSID’s family weight, which is used in all analyses
+relhead: ER34103L this is the relation to the head of household (10=head; 20=legally married wife; 22=cohabiting partner)
+age: Age
+employed: ER34116L Whether or not employed or on temp leave (everyone gets a 1 for this variable, since our wage analyses use only the currently employed)
+sch: schLbl Highest Year of Schooling
+annhrs: Annual Hours Worked
+annlabinc: Annual Labor Income
+occ: 3 Digit Occupation 2000 codes
+ind: 3 Digit Industry 2000 codes
+white: White, nonhispanic dummy variable
+black: Black, nonhispanic dummy variable
+hisp: Hispanic dummy variable
+othrace: Other Race dummy variable
+degree: degreeLbl Agent's Degree Status (0=no college degree; 1=bachelor’s without advanced degree; 2=advanced degree)
+degupd: degreeLbl Agent's Degree Status (Updated with 2009 values)
+schupd: schLbl Schooling (updated years of schooling)
+annwks: Annual Weeks Worked
+unjob: unJobLbl Union Coverage dummy variable
+usualhrwk: Usual Hrs Worked Per Week
+labincbus: Labor Income from Business
+yrsexp: Experience
+yrsftexp: FT Experience
+yrsptexp: PT Experience
+yrsptexpsq: PT Experience^2
+yrsftexpsq: FT Experience^2
+yrsExpSq: Experience^2
+yrsexpfz: Experience (filling in zeros)
+yrsftexpfz: FT Experience (filling in zeros)
+yrsptexpfz: Years of Part-Time Experience (Filling in zeros)
+yrsexpfzsq: Experience^2 (filling in zeros)
+yrsftexpfzsq: FT Experience^2 (filling in zeros)
+wtrgov: Works in Government (dummy variable)
+selfemp: selfEmpLbl =1 If Self Employed for ANY Job in the Current Wave. Everyone gets a zero for this variable because our wage analyses only include wage and salary workers.
+predict98: Total Experience must be predicted for 1998
+predictft98: FT Experience must be predicted for 1998
+predict00: Total Experience must be predicted for 2000
+predictft00: Experience must be predicted for 2000
+predict02: Total Experience must be predicted for 2002
+predictft02: FT Experience must be predicted for 2002
+predict04: Total Experience must be predicted for 2004
+predictft04: FT Experience must be predicted for 2004
+predict06: Total Experience must be predicted for 2006
+predictft06: FT Experience must be predicted for 2006
+predict08: Total Experience must be predicted for 2008
+predictft08: FT Experience must be predicted for 2008
+predict1: Total Experience must be predicted for 2010
+predictft10: FT Experience must be predicted for 2010
+origage:
+origannHrsHD:
+origannHrsWF:
+origannLabIncHD:
+origannLabIncWF:
+origannWeeksHD:
+origannWeeksWF:
+origcurrHrWkHD:
+origcurrHrWkWF:
+origdegreeHD:
+origdegreeWF:
+origemp: ER34116L
+origeverwrkHD07: ER36351L BC62 WTR EVER WORKED
+origeverwrkHD09: ER42376L BC62 WTR EVER WORKED
+origeverwrkHD11: ER47689L BC62 WTR EVER WORKED
+origeverwrkHD99: ER13476L C4 EVER WORKED? (HD-U)
+origeverwrkWF07: ER36609L DE62 WTR EVER WORKED
+origeverwrkWF09: ER42628L DE62 WTR EVER WORKED
+origeverwrkWF11: ER47946L DE62 WTR EVER WORKED
+origeverwrkWF99: ER13988L E4 EVER WORKED? (WF-U)
+origfamWgt:
+origfarmInc:
+origindHD:
+origindWF:
+origmarSt: ER47323L
+orignumChld: ER47320L
+origoccHD:
+origoccWF:
+origraceHD: ER51904L
+origraceWF: ER51810L
+origregion: ER52398L
+origrelHead: ER34103L
+origsch: ER34119L
+origschfamHD07: ER41037L COMPLETED ED-HD
+origschfamHD09: ER46981L COMPLETED ED-HD
+origschfamHD11: ER52405L COMPLETED ED-HD
+origschfamHD81: V8039L M28 EDUCATION-HD
+origschfamHD99: ER16516L COMPLETED ED-HD
+origschfamWF07: ER41038L COMPLETED ED-WF
+origschfamWF09: ER46982L COMPLETED ED-WF
+origschfamWF11: ER52406L COMPLETED ED-WF
+origschfamWF81: V7998L L2 EDUCATION-WF
+origschfamWF99: ER16517L COMPLETED ED-WF
+origsexHead: ER47318L
+origspanHD: ER51903L Spanish Descent Head
+origspanWF: ER51809L Spanish Descent Wife
+origstopw~DE299: ER13307L B53 STOP WRK OTR EMP H-E
+origstopw~DE399: ER13388L B92 STOP WRK XJOB1 (H-E)
+origstopw~DE499: ER13413L B104 STOP WORK XJOB2 H-E
+origstopw~DE599: ER13437L B116 STOP WRK XTRA JOB3
+origstopw~DE699: ER13461L B128 STOP WRK XTRA JOB4
+origstopw~DU299: ER13560L C45 STOP WRK OTR EMP H-U
+origstopw~DU399: ER13641L C84 STOP WORK XJOB1 H-U
+origstopw~DU499: ER13665L C96 STOP WORK XJOB2 H-U
+origstopw~DU599: ER13689L C108 STOP WRK XTRA JOB3
+origstopw~DU699: ER13713L C120 STOP WORK XTRA JOB4
+origstopw~FE299: ER13819L D53 STOP WRK OTR EMP W-E
+origstopw~FE399: ER13900L D92 STOP WRK XJOB1 (W-E)
+origstopw~FE499: ER13925L D104 STOP WRK XJOB2 W-E
+origstopw~FE599: ER13949L D116 STOP WRK XTRA JOB3
+origstopw~FE699: ER13973L D128 STOP WRK XTRA JOB4
+origstopw~FU299: ER14072L E45 STOP WRK OTR EMP W-U
+origstopw~FU399: ER14153L E84 STOP WORK XJOB1 W-U
+origstopw~FU499: ER14177L E96 STOP WORK XJOB2 W-U
+origstopw~FU599: ER14201L E108 STOP WRK XTRA JOB3
+origstopw~FU699: ER14225L E120 STOP WRK XTRA JOB4
+origtotYrsFTHD: ER51956L
+origtotYrsFTWF: ER51862L
+origtotYrsHD: ER51955L
+origtotYrsWF: ER51861L
+origunJobHD: ER47491L
+origunJobWF: ER47748L
+origwrkPriorJ~D: ER47453L
+origwrkPriorJ~F: ER47710L
+origwtrNewHD: ER51865L
+origwtrNewWF: ER51771L
+origyrNewHD: this is the year the family acquired a new head
+origyrNewWF: this is the year the family acquired a new wife
+predict97: Total Experience must be predicted for 1997
+predictft97: FT Experience must be predicted for 1997
+predictfz97: fz Total Experience must be predicted for 1997
+predictftfz97: fz FT Experience must be predicted for 1997
+predictfz98: fz Total Experience must be predicted for 1998
+predictftfz98: fz FT Experience must be predicted for 1998
+predict1999: Total Experience must be predicted for 1999
+predictft1999: FT Experience must be predicted for 1999
+predictfz99: fz Total Experience must be predicted for 1999
+predictftfz99: fz FT Experience must be predicted for 1999
+predictfz00: fz Total Experience must be predicted for 2000
+predictftfz00: fz FT Experience must be predicted for 2000
+predict01: Total Experience must be predicted for 2001
+predictft01: FT Experience must be predicted for 2001
+predictfz01: fz Total Experience must be predicted for 2001
+predictftfz01: fz FT Experience must be predicted for 2001
+predictfz02: fz Total Experience must be predicted for 2002
+predictftfz02: fz FT Experience must be predicted for 2002
+predict03: Total Experience must be predicted for 2003
+predictft03: FT Experience must be predicted for 2003
+predictfz03: fz Total Experience must be predicted for 2003
+predictftfz03: fz FT Experience must be predicted for 2003
+predictfz04: fz Total Experience must be predicted for 2004
+predictftfz04: fz FT Experience must be predicted for 2004
+predictfz06: fz Total Experience must be predicted for 2006
+predictftfz06: fz FT Experience must be predicted for 2006
+predict2007: Total Experience must be predicted for 2007
+predictft2007: FT Experience must be predicted for 2007
+predictfz07: fz Total Experience must be predicted for 2007
+predictftfz07: fz FT Experience must be predicted for 2007
+predictfz08: fz Total Experience must be predicted for 2008
+predictftfz08: fz FT Experience must be predicted for 2008
+predict2009: Total Experience must be predicted for 2009
+predictft2009: FT Experience must be predicted for 2009
+predictfz09: fz Total Experience must be predicted for 2009
+predictftfz09: fz FT Experience must be predicted for 2009
+predictfz10: fz Total Experience must be predicted for 2010
+predictftfz10: fz FT Experience must be predicted for 2010
+predict2011: Total Experience must be predicted for 2011
+predictft2011: FT Experience must be predicted for 2011
+predictfz11: fz Total Experience must be predicted for 2011
+predictftfz11: fz FT Experience must be predicted for 2011
+origAdvHD: Adv is advanced degree
+origAdvWF:
+origBAHD: BA is bachelor’s degree
+origBAWF:
+origannWeeksHDE: annWeeks is annual weeks worked E means currently employed
+origannWeeksHDR: R means currently retired
+origannWeeksHDU: U means currently not employed
+origannWeeksWFE:
+origannWeeksWFR:
+origannWeeksWFU:
+origindHDE: ind is industry
+origindWFE:
+origindHDU:
+origindWFU:
+origindHDR:
+origindWFR:
+origoccHDE: occ is occupation
+origoccHDR:
+origoccHDU:
+origoccWFE:
+origoccWFR:
+origoccWFU:
+origrace: race is race
+origschHD: sch is years of schooling
+origschWF:
+origyrHghstDe~D: yrHghstDegHD is year of highest degree for head
+origyrHghstDe~F:
+origwtrCollDe~D: whether college degree
+origwtrCollDe~F:
+origwtrCollHD: whether attended college
+origwtrCollWF:
+predict: ==1 if Logit Prediction Needed for ANY gap year
+predictft: ==1 if FT Logit Prediction Needed for ANY gap year
+smsa: SMSA dummy variable variable
+perconexp: T-1 Personal Consumption
+Expenditure:
+hrwage: hourly wage
+annhrs2: alternate measure of annual hours worked
+expendbase10: level of National Income and Products Account Personal Consumption Expenditures (PCE) price deflator for 2010
+inflate: inflation factor to multiply earnings by in order to convert to 2010 dollars
+realhrwage: Real Hourly Wage in 2010 PCE corrected dollars
+immigrantsamp: Immigrant Sub-Sample (zero for everyone since we don’t use the immigrant subsample)
+northeast: Region: North-East
+northcentral: Region: North-Central
+south: Region: South
+west: Region: West, Alaska and Hawaii
+lnrealwg: Log(Real Hourly Wage)
+ft: full time work dummy variable
+potexp: potential experience (age-years of schooling-6) truncated to be between 0 and age-18
+potexp2: potential experience squared
+ba: bachelor's Degree
+adv: advanced Degree
+military: zero for everyone since we study civilians
+basesamp: this is base sample, which is 1 for everyone in this data set
+wagesamp: this is wage sample
+female:
+ind2: 2-digit Industry
+occ2: 2-digit Occupation
+occ2name:
+Agriculture:
+miningconstru~n: Ind: Mining and Construction
+durables: Ind: Durables Manufacturing
+nondurables: Ind: Non-durables Manufacturing
+Transport: Ind: Transport
+Utilities: Ind: Utilities
+Communications: Ind: Communications
+retailtrade: Ind: Retail Trade
+wholesaletrade: Ind: Wholesale Trade
+finance: Ind: Finance
+SocArtOther: Ind: Social Work, Arts and Recreation, Other Services
+hotelsrestaur~s: Ind: Hotels and Restaurants
+Medical: Ind: Medical
+Education: Ind: Education
+professional: Ind: Professional Services
+publicadmin: Ind: Public Administration
+sumind: this is the sum of industry dummy variables, which is 1 for everyone
+manager: Manager
+business: Business Operations Specialists
+financialop: Financial Operations Specialists
+computer: Computer and Math Technicians
+architect: Architects an Engineers
+scientist: Life, Physical and Social Sciences
+socialworker: Community and Social Workers
+postseceduc: Post-secondary educators
+legaleduc: Other Education, Training, Library and Legal Occupations
+artist: Arts, Design, Entertainment, Sports and Media
+lawyerphysician: Physicians and Dentists
+healthcare: Nurses and HealthCare Practitioners and Technicians
+healthsupport: Healthcare Support Occupations
+protective: Protective Service Occupations
+foodcare: Food Preparation and Serving and Personal Care Services
+building: Building and Grounds Cleaning and Maintenance
+sales: Sales and Related
+officeadmin: Office and Administrative Support
+farmer:
+constructextr~l: Construction, Extraction, Installation
+production: Production
+transport: Transportation and Materials Moving
+sumocc: this is sum of the occupation dummy variables which is 1 for everyone
+LEHS: High School or Less
+CPS variables:
+
+NOTES: VARIABLES WITH A q AT THE BEGINNING ARE DATA QUALITY FLAGS. ANY VALUE GREATER THAN ZERO INDICATES SOME ISSUE WITH DATA QUALITY. THE EARNINGS DATA WITH ZEROS WAS ONLY USED DURING THE CREATION OF THIS VARIABLE. DUE TO LACK OF DATA AVAILABILITY for 1981, ALL OF THE HOURS AND WEEKS DATA WERE FORCED TO USE REGARDLESS OF THE DATA QUALITY FLAG.
+THE ORIGINAL CPS VARIABLES HAVE BEEN KEPT.
+OCCUPATION AND INDUSTRY WERE NOT USED IN THE CPS ANALYSIS.
+THE VARIABLES WITH tc AT THE BEGINNING INDICATE TOPCODED VALUES.
+
+year: Survey year
+serial: Household serial number
+numprec: Number of person records following
+hwtsupp: hwtsupp_lbl Household weight, Supplement
+gq: gq_lbl Group Quarters status
+region: region_lbl Region and division
+statefip: statefip_lbl State (FIPS code)
+metro: metro_lbl Metropolitan central city status
+metarea: metarea_lbl Metropolitan area
+county: FIPS county code
+farm: farm_lbl Farm (1=this is a farm, 2= it’s not a farm)
+month: month_lbl Month
+pernum: Person number in sample unit
+wtsupp: Supplement Weight
+relate: relate_lbl Relationship to household head (Head/hous=101, Spouse=201, Child=301, Stepchild=303, Parent=501, Sibling=701, Grandchil=901, Other rel=1001, Partner/r=1113, Unmarried=1114, Housemate=1115, Roomer/bo=1241, Foster ch=1242, Other non=1260)
+age: age_lbl Age
+sex: sex_lbl Sex (1=male, 2=female)
+race: raceLbl Race (White nonhisp=1, Black nonhisp=2, Hispanic=3, Other nonhisp=4)
+marst: marst_lbl Marital status (Married, spouse present=1, Married, spouse absent=2, Separated=3, Divorced=4, Widowed=5, Never mar=6)
+popstat; popstat_lbl Adult civilian, armed forces, or Child (1 for everyone—we include only civilian adults)
+bpl: bpl_lbl Birthplace
+yrimmig: yrimmig_lbl Year of immigration
+citizen: citizen_lbl Citizenship status
+mbpl: mbpl_lbl Mother's birthplace
+fbpl: fbpl_lbl Father's birthplace
+nativity: nativity_lbl Foreign birthplace or parentage
+hispan: hispan_lbl Hispanic origin
+sch: educLbl Educational attainment recode (None=0, 1=1, Grades 1=2, 2.5=2.5, 3=3, 4=4, Grades 5=5, 5.5=5.5, 6=6, Grades 7=7, 7.5=7.5, 8=8, Grade 9=9, Grade 10=10, Grade 11=11, Grade 12=12, Some Coll=13, Assoc.=14, BA=16, Adv. Degr=18)
+educ99: educ99_lbl Educational attainment, 1990, available for 1999 and later (No school=1, 1st-4th g=4, 5th-8th g=5, 9th grade=6, 10th grad=7, 11th grad=8, 12th grad=9, High scho=10, Some coll=11, Associate=13, Associate=14, Bachelors=15, Masters d=16, Professio=17, Doctorate=18)
+schlcoll: schlcoll_lbl School or college attendance; available only in 2013 (High school full time=1, High school part time=2, College or univ full time=3, College or univ part time=4, Does not attend school=5)
+empstat: empstat_lbl Employment status (At work=10, Has job, not at work now=12)
+labforce: labforce_lbl Labor force status everyone gets a 2—in the labor force
+occ: occ_lbl Occupation
+occ1990: occ1990_lbl Occupation, 1990 basis
+ind1990: ind1990_lbl Industry, 1990 basis
+occ1950: occ1950_lbl Occupation, 1950 basis
+ind: ind_lbl Industry
+ind1950: ind1950_lbl Industry, 1950 basis
+classwkr: classwkr_lbl Class of worker (Self-empl=10, Wage/salary, private sector=21, Wage/salary, government=24, Federal govt employee=25, State govt employee=27, Local govt employee=28, Unpaid family worker=29)
+occly: occly_lblOccupation last year
+occ50ly: occ50ly_lbl Occupation last year, 1950 basis
+indly: indly_lbl Industry last year
+ind50ly: ind50ly_lbl Industry last year, 1950 basis
+classwly: classwly_lbl Class of worker last year (Self-employed=14, Wage/salary private=22, Federal govt=25, State gov=27, Local gov=28, Unpaid family worker=29)
+wkswork1: wkswork1_lbl Weeks worked last year
+wkswork2: wkswork2_lbl Weeks worked last year, intervalled
+hrswork: hrswork_lbl Hours worked last week
+uhrswork: uhrswork_lbl Usual hours worked per week (last yr)
+union: union_lbl Union membership (only available for outgoing rotation group) (NIU=0, No union coverage=1, Member of labor union=2, Covered by union but not a member=3)
+incwage: incwage_lbl Wage and salary income
+incbus: incbus_lbl Non-farm business income
+incfarm: incfarm_lbl Farm income
+inclongj: inclongj_lbl Earnings from longest job
+oincwage: oincwage_lbl Earnings from other work included wage and salary earnings
+srcearn: srcearn_lbl Source of earnings from longest (1=wage and salary; 4=without pay) job
+ftype: ftype_lbl Family Type (Primary family=1, Nonfamily householder=2, Related subfamily=3, Unrelated subfamily=4, Secondary individual=5)
+quhrswor: quhrswor_lbl Data quality flag for UHRSWORK
+qwkswork: qwkswork_lbl Data quality flag for WKSWORK1 and WKSWORK2
+qincbus: qincbus_lbl Data quality flag for INCBUS
+qincfarm: qincfarm_lbl Data quality flag for INCFARM
+qinclong: qinclong_lbl Data quality flag for INCLONGJ
+qincwage: qincwage_lbl Data quality flag for INCWAGE
+qsrcearn: qsrcearn_lbl Data quality flag for SRCEARN
+o_numprec: Original Number of person records following'
+o_hwtsupp: Original Household weight, Supplement'
+o_gq: Original Group Quarters status'
+o_region: Original Region and division'
+o_statefip: Original State (FIPS code)'
+o_metro: Original Metropolitan central city status'
+o_metarea: Original Metropolitan area'
+o_county: Original FIPS county code'
+o_farm: Original Farm'
+o_month: Original Month'
+o_pernum: Original Person number in sample unit'
+o_wtsupp: Original Supplement Weight'
+o_relate: Original Relationship to household head'
+o_age: Original Age'
+o_sex: Original Sex'
+o_race: Original Race'
+o_marst: Original Marital status'
+o_popstat: Original Adult civilian, armed forces, or child'
+o_bpl: Original Birthplace'
+o_yrimmig: Original Year of immigration'
+o_citizen: Original Citizenship status'
+o_mbpl: Original Mother's birthplace'
+o_fbpl: Original Father's birthplace'
+o_nativity: Original Foreign birthplace or parentage'
+o_hispan: Original Hispanic origin'
+o_educ: Original Educational attainment recode'
+o_educ99: Original Educational attainment, 1990'
+o_schlcoll: Original School or college attendance'
+o_empstat: Original Employment status'
+o_labforce: Original Labor force status'
+o_occ: Original Occupation'
+o_occ1990: Original Occupation, 1990 basis'
+o_ind1990: Original Industry, 1990 basis'
+o_occ1950: Original Occupation, 1950 basis'
+o_ind: Original Industry'
+o_ind1950: Original Industry, 1950 basis'
+o_classwkr: Original Class of worker'
+o_occly: Original Occupation last year'
+o_occ50ly: Original Occupation last year, 1950 basis'
+o_indly: Original Industry last year'
+o_ind50ly: Original Industry last year, 1950 basis'
+o_classwly: Original Class of worker last year'
+o_wkswork1: Original Weeks worked last year'
+o_wkswork2: Original Weeks worked last year, intervalled'
+o_hrswork: Original Hours worked last week'
+o_uhrswork: Original Usual hours worked per week (last yr)'
+o_union: Original Union membership'
+o_incwage: Original Wage and salary income'
+o_incbus: Original Non-farm business income'
+o_incfarm: Original Farm income'
+o_inclongj: Original Earnings from longest job'
+o_oincwage: Original Earnings from other work included wage and salary earnings'
+o_srcearn: Original Source of earnings from longest job'
+o_ftype: Original Family Type'
+o_quhrswor: Original Data quality flag for UHRSWORK'
+o_qwkswork: Original Data quality flag for WKSWORK1 and WKSWORK2'
+o_qincbus: Original Data quality flag for INCBUS'
+o_qincfarm: Original Data quality flag for INCFARM'
+o_qincwage: Original Data quality flag for INCWAGE'
+origrace: race_lbl Race
+white: white nonhispanic dummy variable
+black: black nonhispanic dummy variable
+hisp: Hispanic dummy variable
+othrace: other race dummy variable
+educorig: original education codes (see CPS documentation site mentioned above)
+ba: bachelor’s degree dummy variable
+adv: advanced degree dummy variable
+groupquar: group quarters dummy variable. Zero for everyone.
+potexp: age-yrs of schooling-6
+potexp2: potexp squared
+selfemp: self employment dummy variable. Zero for everone.
+military: =1 if military (Based on popstat variable). Variable is zero for everyone.
+employed: equals 1 for everyone
+annhrs: annual work hours
+ft: full time work dummy variable
+niincwage: Not Imputed incwage
+incwageman: Manually Created INCWAGE
+tcoincwage
+tcinclongj
+tcincwage: True Topcoded INCWAGE (Includes Imputed Values)
+hrwage: hourly wage
+perconexp: T-1 Personal Consumption Expenditure
+expendbase10: 2010 PCE value
+inflate: inflation factor for expressing wages in 2010 dollars
+realhrwage: Real Hourly Wage, inflated to 2010 dollars
+uncenrealhrwage: Real Hourly Wage (same as realhrwage)
+lnrwg: log of real hourly wage
+hdwfcoh: Head/Wife/Cohabitator Indicator
+notalloc: not allocated wage. Equals 1 for everyone.
+basesamp: base sample; 1 for everyone
+wagesamp: wage sample dummy variable
+occ_orig:
+adj_occ: in some years, occupation has four digits and in others it has 3. This expresses occupation in 3 digits
+occ_2010_orig
+ind_orig
+adj_ind
+ind_2002_orig
+ind_2007_orig
+occ_81
+ind_81
+occ_2000female: 2000 Occupation Code
+unmatched_fe~81
+occ_2000male: 2000 Occupation Code
+unmatched_ma~81
+ind_2000
+occ2000_81: 1981 occupation codes converted to 2000 codes
+ind2000_81: 1981 industry codes converted to 2000 codes
+occ_1990
+ind_1990
+occ_1999
+ind_1999
+unmatched_oc~90
+occ2000_90: 1990 occupation codes converted to 2000 codes
+unmatched_in~90
+ind2000_90: 1990 industry codes converted to 2000 codes
+indname2000_90
+unmatched_oc~99
+occ2000_99: 1990 occupation codes converted to 2000 codes
+unmatched_in~99
+ind2000_99: 1990 industry codes converted to 2000 codes
+indname2000_99
+un_lnrealwg: Log of Real Hourly Wage
+northeast: Region: North-East
+northcentral: Region: North-Central
+south: Region: South
+west: Region: West, Alaska and Hawaii
+female
+adj_ind2
+adj_occ2
+adj_occ2name
+Agriculture
+miningconstru~n: adj_ind: Mining and Construction
+durables: adj_ind: Durables Manufacturing
+nondurables: adj_ind: Non-durables
+Manufacturing
+Transport: adj_ind: Transport
+Utilities: adj_ind: Utilities
+Communications: adj_ind: Communications
+retailtrade: adj_ind: Retail Trade
+wholesaletrade: adj_ind: Wholesale Trade
+finance: adj_ind: Finance
+SocArtOther: adj_ind: Social Work, Arts and Recreation, Other Services
+hotelsrestaur~s: adj_ind: Hotels and Restaurants
+Medical: adj_ind: Medical
+Education: adj_ind: Education
+professional: adj_ind: Professional Services
+publicadmin: adj_ind: Public Administration
+sumadj_ind: sum of industry dummy variables
+manager: Manager
+business: Business Operations Specialists
+financialop: Financial Operations Specialists
+computer: Computer and Math Technicians
+architect: Architects an Engineers
+scientist: Life, Physical and Social Sciences
+socialworker: Community and Social Workers
+postseceduc: Post-secondary educators
+legaleduc: Other Education, Training, Library and Legal adj_occupations
+artist: Arts, Design, Entertainment, Sports and Media
+lawyerphysician: Physicians and Dentists
+healthcare: Nurses and HealthCare Practitioners and Technicians
+healthsupport: Healthcare Support adj_occupations
+protective: Protective Service adj_occupations
+foodcare: Food Preparation and Serving and Personal Care Services
+building: Building and Grounds Cleaning and Maintenance
+sales: Sales and Related
+officeadmin: Office and Administrative Support
+farmer
+constructextr~l: Construction, Extraction,
+Installation
+production: Production
+transport: Transportation and Materials
+Moving
+sumadj_occ: sum of occupation dummy variables
+LEHS: dummy for less than or equal to high school
+Acknowledgements
+Journal Article:
+Blau, Francine D. Kahn, Lawrence M. The Gender Wage Gap: Extent, Trends, and Explanations Journal of Economic Literature 55 3 789-865 2017.
